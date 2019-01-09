@@ -9,7 +9,8 @@ h3{
 }
 
 .logo-img{
-  height:80px;
+  /*height:80px;*/
+  width:200px;
 }
 
 header{
@@ -17,7 +18,7 @@ header{
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
-  border:2px solid #ccc;
+  border-bottom:2px solid #ccc;
   box-shadow: 2px 2px 2px #eee;
   background-color: white;
   position: relative;
@@ -42,8 +43,14 @@ header{
 }
 
 .search-btn{
-  background-color: #eee;
+  /*background-color: #eee;*/
   border:1px solid #aaa;
+}
+
+
+
+.mobile-view-dropdown, .mobile-view-dropdown:before, .mobile-view-dropdown:after{
+  display: none;
 }
 
 /*-----------------------------------------*/
@@ -56,11 +63,13 @@ main{
 
 .art-main-section{
   display: grid;
+
   grid-template-columns: 60vw 36vw;
-  height: 85vh;
+  min-height: calc(100vh - 100px - 5vh);
   justify-items: stretch;
   align-items: center;
   padding:10px 0;
+  /*border:1px solid #ddd;*/
 }
 
 /* No image placeholder */
@@ -184,15 +193,87 @@ main{
 .credits-footer{
   font-size: 14px;
   padding: 10px 0;
-  position: fixed;
-  bottom: 0;
-  left:50%;
-  transform: translate(-50%,0);
+  text-align: center;
+  border-top: 1px solid #ddd;
+  /*position: fixed;*/
+  /*bottom: 0;*/
+  /*left:50%;*/
+  /*transform: translate(-50%,0);*/
 }
 
 .credits-footer a{
   color:#999;
 }
 
+/* Mobile view */
+/*@media (max-width: 680px) {
+  .logo-img{
+    height:120px;
+  }
+}*/
 
+@media (max-width: 820px) {
+  .art-main-section{
+  grid-template-columns: 1fr;
+}
+
+  .cen-select-main, .cat-select-main, .search-btn{
+    margin:5px 0 !important;
+  }
+
+  .header-form{
+    display: none;
+  }
+  
+  header{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-bottom:10px;
+    /*justify-items:center;*/
+  }
+
+  header .logo-img{
+    /*border-bottom: 1px solid #ccc;*/
+  }
+
+  .header-form{
+    /*display: grid;*/
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .header-form >*{
+    /*width: 70%;*/
+  }
+
+  .logo-main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mobile-view-dropdown{
+    font-size: 24px;
+    margin-right: 10px;
+  }
+
+  .mobile-view-dropdown, .mobile-view-dropdown:before, .mobile-view-dropdown:after{
+      display: block;
+  }
+}
+
+/* dark mode */
+
+/*header, main{
+  background-image: url(./../media/backgroundSmall.png);
+}
+
+header{
+  box-shadow: none;
+  border-bottom: 1px solid #ccc;
+}
+
+header button, .art-details>*, .move, .credits-footer,
+ .wait-spinner, .no-item-display, .mobile-view-dropdown{
+  color:white !important;
+}*/
 

@@ -14,12 +14,12 @@ function updateDom(){
 			detailSec.textContent = records[selectRecordIndex][key];
 		}
 	}
-		dq('.art-main-section').style.display = "grid";
+		dq('.art-main-section').style.visibility = "visible";
 }
 
 function updateCategoryUl(){
 	var categoryUl = dq('.category-select');
-	var liList = `<option value="default">Category</option>`;
+	var liList = `<option value="default">Category - All</option>`;
 	for (item of buckets){
 		liList += `<option value="${item.key}">${item.key}</option>`
 	}
@@ -28,7 +28,7 @@ function updateCategoryUl(){
 
 function updateCenturyUl(selectedCategory){
 	var centuryUl = dq('.century-select');
-	var liList = `<option value="default">Century</option>`;
+	var liList = `<option value="default">Century - All</option>`;
 	if (selectedCategory!='default'){
 		var selectedCategoryObject = buckets.filter((item)=>item.key==selectedCategory)[0]
 		for (item of selectedCategoryObject.by_century["buckets"]){	
@@ -53,8 +53,12 @@ function updateCenturyUl(selectedCategory){
 
 function clearDom(){
 	artImageSection.src = "#";
-	dq('.art-main-section').style.display = "none";
+	dq('.art-main-section').style.visibility = "hidden";
 	dq('.wait-spinner').style.display = "block";
+	if (window.innerWidth<820){
+		dq('.header-form').style.display = "none";
+		dq('.mobile-view-dropdown').style.transform = "rotateX(0deg)";
+	}
 	for (key in records[selectRecordIndex]){
 		var detailSec = dq(`.${key}`);
 		if (detailSec){

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<title>HarwardArtGallery</title>
 
 	<link rel="stylesheet" href="./assets/stylesheet/reset.css">
@@ -12,17 +13,22 @@
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-</head>
+</head> 
 <body>
-	<header class="">
-		<img class="logo-img" src="./assets/media/harvardlogo.png" alt="">
+	<header class="">	
+		<div class="logo-main">
+			<img class="logo-img" src="./assets/media/light-mode.png" alt="">
+			<i class="mobile-view-dropdown fas fa-chevron-down"></i>
+		</div>
 		<!-- <h3 class="">ArtGallery</h3> -->
+		
 		<form action="" class="header-form">
+
 			<!-- Category selection -->
-			<div class="uk-margin">
+			<div class="cat-select-main uk-margin">
 				<div uk-form-custom="target: > * > span:first-child">
 					<select class="uk-select category-select">
-						<option value="">Category</option>
+						<option value="">Category - All</option>
 					</select>
 					<button class="uk-button uk-button-default" type="button" tabindex="-1">
 						<span></span>
@@ -33,10 +39,10 @@
 			</div>
 
 			<!-- Century selection -->
-			<div class="uk-margin">
+			<div class="cen-select-main uk-margin">
 				<div uk-form-custom="target: > * > span:first-child">
 					<select class="uk-select century-select">
-						<option value="">Century</option>
+						<option value="">Century - All</option>
 					</select>
 					<button class="uk-button uk-button-default" type="button" tabindex="-1">
 						<span></span>

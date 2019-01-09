@@ -7,6 +7,7 @@ var records = [];
 var images;
 var preloadArray = [];
 
+
 // Initialization of the site
 updateCategoryUl();
 updateCenturyUl(selectedCategory);
@@ -33,6 +34,7 @@ dq('.search-btn').addEventListener('click',(e)=>{
 			updateDom();
 		} else {
 			dq('.no-item-display').style.display = "block";
+			dq('.wait-spinner').style.display = "none";
 		}
 	})
 })
@@ -67,4 +69,45 @@ setInterval(()=>{
 		dq('.internet-message').style.top = "-28px";
 	}
 }, 3000)
+
+var mobileDropDownStatus = 0;
+dq('.mobile-view-dropdown').addEventListener('click',()=>{
+	mobileDropDownStatus = !mobileDropDownStatus;
+	if (mobileDropDownStatus==0){
+		dq('.header-form').style.display = "none";
+		dq('.mobile-view-dropdown').style.transform = "rotateX(0deg)";
+	} else {
+		dq('.header-form').style.display = "grid";
+		dq('.mobile-view-dropdown').style.transform = "rotateX(180deg)";
+	}
+})
+
+
+window.addEventListener('resize', ()=>{
+	if (window.innerWidth>820){
+		dq('.header-form').style.display = "grid";
+		// dq('.mobile-view-dropdown').style.transform = "rotateX(180deg)";
+	} else if(mobileDropDownStatus==0){
+		dq('.header-form').style.display = "none";
+	}
+})
+
+
+
+
+function loadFile(path){
+    var fileref=document.createElement("link");
+    fileref.setAttribute("rel", "stylesheet");
+    fileref.setAttribute("type", "text/css");
+    fileref.setAttribute("href", path);
+    fileref.setAttribute("id", "dark-mode-css")
+  document.getElementsByTagName("head")[0].appendChild(fileref);
+}
+
+
+
+loadFile('./assets/stylesheet/dark-mode.css');
+
+sheet = document.getElementById("dark-mode-css")
+sheet.parentNode.removeChild(sheet)
 

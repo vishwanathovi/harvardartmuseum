@@ -1,0 +1,15 @@
+/* dark mode */
+
+header, main{
+  background-image: url(./../media/backgroundSmall.png);
+}
+
+header{
+  box-shadow: none;
+  border-bottom: 1px solid #ccc;
+}
+
+header button, .art-details>*, .move, .credits-footer,
+ .wait-spinner, .no-item-display, .mobile-view-dropdown{
+  color:white !important;
+}
