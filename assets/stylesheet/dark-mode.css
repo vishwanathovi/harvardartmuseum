@@ -10,6 +10,6 @@ header{
 }
 
 header button, .art-details>*, .move, .credits-footer,
- .wait-spinner, .no-item-display, .mobile-view-dropdown{
+ .wait-spinner, .no-item-display, .mobile-view-dropdown, .toggle-main{
   color:white !important;
 }

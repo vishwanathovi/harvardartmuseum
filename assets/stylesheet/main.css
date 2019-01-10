@@ -189,12 +189,21 @@ main{
     -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.5); 
 }
 
+/* Footer section formatting */
+
+.footer{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding:0 20px;
+  border-top: 1px solid #ddd;
+}
+
 /* Credits section */
 .credits-footer{
   font-size: 14px;
   padding: 10px 0;
   text-align: center;
-  border-top: 1px solid #ddd;
   /*position: fixed;*/
   /*bottom: 0;*/
   /*left:50%;*/
@@ -203,6 +212,11 @@ main{
 
 .credits-footer a{
   color:#999;
+}
+
+.toggle-theme:hover{
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* Mobile view */
@@ -261,19 +275,4 @@ main{
   }
 }
 
-/* dark mode */
-
-/*header, main{
-  background-image: url(./../media/backgroundSmall.png);
-}
-
-header{
-  box-shadow: none;
-  border-bottom: 1px solid #ccc;
-}
-
-header button, .art-details>*, .move, .credits-footer,
- .wait-spinner, .no-item-display, .mobile-view-dropdown{
-  color:white !important;
-}*/
 
