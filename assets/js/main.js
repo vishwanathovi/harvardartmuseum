@@ -24,16 +24,13 @@ window.addEventListener("load",()=>{
 	});
 
 	// Service worker
-
 	if ('serviceWorker' in window.navigator){
 		try {
 			navigator.serviceWorker.register('sw.js'); 
 		} catch(e) {
-			// statements
 			console.log(e);
 		}
 	}
-
 
 })
 
@@ -78,6 +75,25 @@ dq('.right-move').addEventListener('click', () => {
   }
   checkValidityAndDisplay();
 });
+
+window.addEventListener('keyup', (e)=>{
+	if (e.key=='ArrowRight'){
+	  if (selectRecordIndex < records.length - 1) {
+	    clearDom();
+	    selectRecordIndex += 1;
+	    updateDom();
+	  }
+	  checkValidityAndDisplay();
+	} else if (e.key=='ArrowLeft'){
+	  if (selectRecordIndex) {
+	    clearDom();
+	    selectRecordIndex -= 1;
+	    updateDom();
+	  }
+	  checkValidityAndDisplay();
+	}
+})
+
 
 setInterval(() => {
   if (!navigator.onLine) {
