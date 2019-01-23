@@ -8,20 +8,36 @@ let images;
 let preloadArray = [];
 var mobileDropDownStatus = 0;
 
+window.addEventListener("load",()=>{
+	// Initialization of the site
+	updateCategoryUl();
+	updateCenturyUl(selectedCategory);
+	clearDom();
+	fetchData(30).then(() => {
+	  if (records.length) {
+	    preloadImage();
+	    checkValidityAndDisplay();
+	    updateDom();
+	  } else {
+	    dq('.no-item-display').style.display = 'block';
+	  }
+	});
 
-// Initialization of the site
-updateCategoryUl();
-updateCenturyUl(selectedCategory);
-clearDom();
-fetchData(30).then(() => {
-  if (records.length) {
-    preloadImage();
-    checkValidityAndDisplay();
-    updateDom();
-  } else {
-    dq('.no-item-display').style.display = 'block';
-  }
-});
+	// Service worker
+
+	if ('serviceWorker' in window.navigator){
+		try {
+			navigator.serviceWorker.register('sw.js'); 
+		} catch(e) {
+			// statements
+			console.log(e);
+		}
+	}
+
+
+})
+
+
 
 dq('.search-btn').addEventListener('click', (e) => {
   e.preventDefault();
@@ -73,6 +89,7 @@ setInterval(() => {
 
 
 dq('.mobile-view-dropdown').addEventListener('click', () => {
+	console.log(mobileDropDownStatus)
   mobileDropDownStatus = !mobileDropDownStatus;
   if (mobileDropDownStatus == 0) {
     dq('.header-form').style.display = 'none';

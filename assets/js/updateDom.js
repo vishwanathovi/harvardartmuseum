@@ -50,13 +50,13 @@ function updateCenturyUl(selectedCategory){
 	centuryUl.innerHTML = liList;
 }
 
-
 function clearDom(){
 	artImageSection.src = "#";
 	dq('.art-main-section').style.visibility = "hidden";
 	dq('.wait-spinner').style.display = "block";
 	if (window.innerWidth<820){
 		dq('.header-form').style.display = "none";
+		mobileDropDownStatus = false;
 		dq('.mobile-view-dropdown').style.transform = "rotateX(0deg)";
 	}
 	for (key in records[selectRecordIndex]){

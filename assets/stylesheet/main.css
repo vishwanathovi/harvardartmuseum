@@ -47,7 +47,14 @@ header{
   border:1px solid #aaa;
 }
 
+.search-btn:focus{
+  border:1px solid #006;
+  border-radius: 2px;
+}
 
+.search-btn:hover, .cat-select-main:hover, .cen-select-main:hover{
+  box-shadow: 0 6px 6px -6px #666;
+}
 
 .mobile-view-dropdown, .mobile-view-dropdown:before, .mobile-view-dropdown:after{
   display: none;
@@ -211,7 +218,7 @@ main{
 }
 
 .credits-footer a{
-  color:#999;
+  color:#444;
 }
 
 .toggle-theme:hover{
