@@ -151,3 +151,9 @@ function darkModeToggle() {
 }
 
 dq('.toggle-theme').addEventListener('click', darkModeToggle )
+
+
+
+window.addEventListener('beforeinstallprompt', (e) => {
+	console.log('Add to homescreen need to be added here')
+});
